@@ -1,0 +1,38 @@
+name: Build Windows EXE
+
+on:
+  push:
+    branches: [main] # Se ejecuta cada vez que subes cambios a main
+
+jobs:
+  build:
+    runs-on: windows-latest # GitHub nos presta una máquina con Windows
+
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install customtkinter fpdf python-docx pyinstaller
+
+      - name: Crear Binario con PyInstaller
+        run: |
+          pyinstaller --noconfirm --onedir --windowed --add-data "core;core" --add-data "gui;gui" --add-data "utils;utils" --name "ConversorPDF" --icon "gui/assets/logo.ico" main.py
+
+      - name: Compilar Instalador con Inno Setup
+        uses: rysoftware/iscc-action@v0
+        with:
+          filepath: ./installer_script.iss
+
+      - name: Subir Resultado
+        uses: actions/upload-artifact@v3
+        with:
+          name: Instalador-Windows
+          path: Output/*.exe
