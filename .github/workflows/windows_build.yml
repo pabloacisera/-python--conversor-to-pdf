@@ -2,11 +2,11 @@ name: Build Windows EXE
 
 on:
   push:
-    branches: [main] # Se ejecuta cada vez que subes cambios a main
+    branches: [main]
 
 jobs:
   build:
-    runs-on: windows-latest # GitHub nos presta una máquina con Windows
+    runs-on: windows-latest
 
     steps:
       - name: Checkout código
@@ -22,17 +22,23 @@ jobs:
           python -m pip install --upgrade pip
           pip install customtkinter fpdf python-docx pyinstaller
 
-      - name: Crear Binario con PyInstaller
+      - name: Verificar archivos
         run: |
-          pyinstaller --noconfirm --onedir --windowed --add-data "core;core" --add-data "gui;gui" --add-data "utils;utils" --name "ConversorPDF" --icon "gui/assets/logo.ico" main.py
+          dir
+          dir gui
+          dir gui\assets
 
-      - name: Compilar Instalador con Inno Setup
-        uses: rysoftware/iscc-action@v0
-        with:
-          filepath: ./installer_script.iss
+      - name: Crear EXE con PyInstaller
+        run: |
+          pyinstaller --noconfirm --onedir --windowed ^
+            --add-data "core;core" ^
+            --add-data "gui;gui" ^
+            --add-data "utils;utils" ^
+            --name "ConversorPDF" ^
+            main.py
 
-      - name: Subir Resultado
+      - name: Subir artefacto
         uses: actions/upload-artifact@v3
         with:
-          name: Instalador-Windows
-          path: Output/*.exe
+          name: Windows-EXE
+          path: dist/ConversorPDF
