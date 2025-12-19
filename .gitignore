@@ -1,15 +1,23 @@
 # Python
 __pycache__/
-*.py[cod]
-*$py.class
-venv/
+*.pyc
+*.pyo
+*.pyd
 .env
+venv/
 
-# PyInstaller / Construcción local
+# PyInstaller
 build/
 dist/
 *.spec
+_internal/
 
-# Paquetes locales
+# OS
+.DS_Store
+Thumbs.db
+
+# Packages
 *.deb
-paquete_conversor/
+*.exe
+*.msi
+
