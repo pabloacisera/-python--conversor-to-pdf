@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# PyInstaller / Construcción local
+build/
+dist/
+*.spec
+
+# Paquetes locales
+*.deb
+paquete_conversor/

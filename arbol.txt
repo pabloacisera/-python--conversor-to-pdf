@@ -1,0 +1,997 @@
+.
+├── arbol.txt
+├── build
+│   └── ConversorPDF
+│       ├── Analysis-00.toc
+│       ├── base_library.zip
+│       ├── COLLECT-00.toc
+│       ├── ConversorPDF
+│       ├── ConversorPDF.pkg
+│       ├── EXE-00.toc
+│       ├── localpycs
+│       │   ├── pyimod01_archive.pyc
+│       │   ├── pyimod02_importers.pyc
+│       │   ├── pyimod03_ctypes.pyc
+│       │   └── struct.pyc
+│       ├── PKG-00.toc
+│       ├── PYZ-00.pyz
+│       ├── PYZ-00.toc
+│       ├── warn-ConversorPDF.txt
+│       └── xref-ConversorPDF.html
+├── conversor_package
+│   ├── DEBIAN
+│   │   └── control
+│   └── usr
+│       ├── bin
+│       │   └── conversor-pdf
+│       │       ├── ConversorPDF
+│       │       └── _internal
+│       │           ├── base_library.zip
+│       │           ├── core
+│       │           │   ├── converter.py
+│       │           │   ├── __init__.py
+│       │           │   └── __pycache__
+│       │           │       ├── converter.cpython-312.pyc
+│       │           │       └── __init__.cpython-312.pyc
+│       │           ├── customtkinter
+│       │           │   └── assets
+│       │           │       ├── fonts
+│       │           │       │   ├── CustomTkinter_shapes_font.otf
+│       │           │       │   └── Roboto
+│       │           │       │       ├── Roboto-Medium.ttf
+│       │           │       │       └── Roboto-Regular.ttf
+│       │           │       ├── icons
+│       │           │       │   └── CustomTkinter_icon_Windows.ico
+│       │           │       └── themes
+│       │           │           ├── blue.json
+│       │           │           ├── dark-blue.json
+│       │           │           └── green.json
+│       │           ├── docx
+│       │           │   ├── py.typed
+│       │           │   └── templates
+│       │           │       ├── default-comments.xml
+│       │           │       ├── default.docx
+│       │           │       ├── default-docx-template
+│       │           │       │   ├── [Content_Types].xml
+│       │           │       │   ├── customXml
+│       │           │       │   │   ├── item1.xml
+│       │           │       │   │   ├── itemProps1.xml
+│       │           │       │   │   └── _rels
+│       │           │       │   │       └── item1.xml.rels
+│       │           │       │   ├── docProps
+│       │           │       │   │   ├── app.xml
+│       │           │       │   │   ├── core.xml
+│       │           │       │   │   └── thumbnail.jpeg
+│       │           │       │   ├── _rels
+│       │           │       │   └── word
+│       │           │       │       ├── document.xml
+│       │           │       │       ├── fontTable.xml
+│       │           │       │       ├── numbering.xml
+│       │           │       │       ├── _rels
+│       │           │       │       │   └── document.xml.rels
+│       │           │       │       ├── settings.xml
+│       │           │       │       ├── stylesWithEffects.xml
+│       │           │       │       ├── styles.xml
+│       │           │       │       ├── theme
+│       │           │       │       │   └── theme1.xml
+│       │           │       │       └── webSettings.xml
+│       │           │       ├── default-footer.xml
+│       │           │       ├── default-header.xml
+│       │           │       ├── default-settings.xml
+│       │           │       └── default-styles.xml
+│       │           ├── gui
+│       │           │   ├── app_ui.py
+│       │           │   ├── __init__.py
+│       │           │   └── __pycache__
+│       │           │       ├── app_ui.cpython-312.pyc
+│       │           │       └── __init__.cpython-312.pyc
+│       │           ├── libBLT.2.5.so.8.6
+│       │           ├── libbrotlicommon.so.1
+│       │           ├── libbrotlidec.so.1
+│       │           ├── libbsd.so.0
+│       │           ├── libbz2.so.1.0
+│       │           ├── libcrypto.so.3
+│       │           ├── libexpat.so.1
+│       │           ├── libffi.so.8
+│       │           ├── libfontconfig.so.1
+│       │           ├── libfreetype.so.6
+│       │           ├── liblzma.so.5
+│       │           ├── libmd.so.0
+│       │           ├── libpng16.so.16
+│       │           ├── libpython3.12.so.1.0
+│       │           ├── libreadline.so.8
+│       │           ├── libssl.so.3
+│       │           ├── libtcl8.6.so
+│       │           ├── libtinfo.so.6
+│       │           ├── libtk8.6.so
+│       │           ├── libX11.so.6
+│       │           ├── libXau.so.6
+│       │           ├── libXdmcp.so.6
+│       │           ├── libXext.so.6
+│       │           ├── libXft.so.2
+│       │           ├── libXrender.so.1
+│       │           ├── libXss.so.1
+│       │           ├── libz.so.1
+│       │           ├── lxml
+│       │           │   ├── builder.cpython-312-x86_64-linux-gnu.so
+│       │           │   ├── _elementpath.cpython-312-x86_64-linux-gnu.so
+│       │           │   ├── etree.cpython-312-x86_64-linux-gnu.so
+│       │           │   ├── html
+│       │           │   │   ├── diff.cpython-312-x86_64-linux-gnu.so
+│       │           │   │   └── _difflib.cpython-312-x86_64-linux-gnu.so
+│       │           │   ├── isoschematron
+│       │           │   │   └── resources
+│       │           │   │       ├── rng
+│       │           │   │       │   └── iso-schematron.rng
+│       │           │   │       └── xsl
+│       │           │   │           ├── iso-schematron-xslt1
+│       │           │   │           │   ├── iso_abstract_expand.xsl
+│       │           │   │           │   ├── iso_dsdl_include.xsl
+│       │           │   │           │   ├── iso_schematron_message.xsl
+│       │           │   │           │   ├── iso_schematron_skeleton_for_xslt1.xsl
+│       │           │   │           │   ├── iso_svrl_for_xslt1.xsl
+│       │           │   │           │   └── readme.txt
+│       │           │   │           ├── RNG2Schtrn.xsl
+│       │           │   │           └── XSD2Schtrn.xsl
+│       │           │   ├── objectify.cpython-312-x86_64-linux-gnu.so
+│       │           │   └── sax.cpython-312-x86_64-linux-gnu.so
+│       │           ├── python3.12
+│       │           │   └── lib-dynload
+│       │           │       ├── _asyncio.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _bz2.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _codecs_cn.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _codecs_hk.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _codecs_iso2022.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _codecs_jp.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _codecs_kr.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _codecs_tw.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _contextvars.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _ctypes.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _decimal.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _hashlib.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _json.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _lzma.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── mmap.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _multibytecodec.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _multiprocessing.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _posixshmem.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _queue.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── readline.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── resource.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── _ssl.cpython-312-x86_64-linux-gnu.so
+│       │           │       ├── termios.cpython-312-x86_64-linux-gnu.so
+│       │           │       └── _tkinter.cpython-312-x86_64-linux-gnu.so
+│       │           ├── _tcl_data
+│       │           │   ├── auto.tcl
+│       │           │   ├── clock.tcl
+│       │           │   ├── encoding
+│       │           │   │   ├── ascii.enc
+│       │           │   │   ├── big5.enc
+│       │           │   │   ├── cns11643.enc
+│       │           │   │   ├── cp1250.enc
+│       │           │   │   ├── cp1251.enc
+│       │           │   │   ├── cp1252.enc
+│       │           │   │   ├── cp1253.enc
+│       │           │   │   ├── cp1254.enc
+│       │           │   │   ├── cp1255.enc
+│       │           │   │   ├── cp1256.enc
+│       │           │   │   ├── cp1257.enc
+│       │           │   │   ├── cp1258.enc
+│       │           │   │   ├── cp437.enc
+│       │           │   │   ├── cp737.enc
+│       │           │   │   ├── cp775.enc
+│       │           │   │   ├── cp850.enc
+│       │           │   │   ├── cp852.enc
+│       │           │   │   ├── cp855.enc
+│       │           │   │   ├── cp857.enc
+│       │           │   │   ├── cp860.enc
+│       │           │   │   ├── cp861.enc
+│       │           │   │   ├── cp862.enc
+│       │           │   │   ├── cp863.enc
+│       │           │   │   ├── cp864.enc
+│       │           │   │   ├── cp865.enc
+│       │           │   │   ├── cp866.enc
+│       │           │   │   ├── cp869.enc
+│       │           │   │   ├── cp874.enc
+│       │           │   │   ├── cp932.enc
+│       │           │   │   ├── cp936.enc
+│       │           │   │   ├── cp949.enc
+│       │           │   │   ├── cp950.enc
+│       │           │   │   ├── dingbats.enc
+│       │           │   │   ├── ebcdic.enc
+│       │           │   │   ├── euc-cn.enc
+│       │           │   │   ├── euc-jp.enc
+│       │           │   │   ├── euc-kr.enc
+│       │           │   │   ├── gb12345.enc
+│       │           │   │   ├── gb1988.enc
+│       │           │   │   ├── gb2312.enc
+│       │           │   │   ├── gb2312-raw.enc
+│       │           │   │   ├── iso2022.enc
+│       │           │   │   ├── iso2022-jp.enc
+│       │           │   │   ├── iso2022-kr.enc
+│       │           │   │   ├── iso8859-10.enc
+│       │           │   │   ├── iso8859-11.enc
+│       │           │   │   ├── iso8859-13.enc
+│       │           │   │   ├── iso8859-14.enc
+│       │           │   │   ├── iso8859-15.enc
+│       │           │   │   ├── iso8859-16.enc
+│       │           │   │   ├── iso8859-1.enc
+│       │           │   │   ├── iso8859-2.enc
+│       │           │   │   ├── iso8859-3.enc
+│       │           │   │   ├── iso8859-4.enc
+│       │           │   │   ├── iso8859-5.enc
+│       │           │   │   ├── iso8859-6.enc
+│       │           │   │   ├── iso8859-7.enc
+│       │           │   │   ├── iso8859-8.enc
+│       │           │   │   ├── iso8859-9.enc
+│       │           │   │   ├── jis0201.enc
+│       │           │   │   ├── jis0208.enc
+│       │           │   │   ├── jis0212.enc
+│       │           │   │   ├── koi8-r.enc
+│       │           │   │   ├── koi8-u.enc
+│       │           │   │   ├── ksc5601.enc
+│       │           │   │   ├── macCentEuro.enc
+│       │           │   │   ├── macCroatian.enc
+│       │           │   │   ├── macCyrillic.enc
+│       │           │   │   ├── macDingbats.enc
+│       │           │   │   ├── macGreek.enc
+│       │           │   │   ├── macIceland.enc
+│       │           │   │   ├── macJapan.enc
+│       │           │   │   ├── macRoman.enc
+│       │           │   │   ├── macRomania.enc
+│       │           │   │   ├── macThai.enc
+│       │           │   │   ├── macTurkish.enc
+│       │           │   │   ├── macUkraine.enc
+│       │           │   │   ├── shiftjis.enc
+│       │           │   │   ├── symbol.enc
+│       │           │   │   └── tis-620.enc
+│       │           │   ├── history.tcl
+│       │           │   ├── http1.0
+│       │           │   │   ├── http.tcl
+│       │           │   │   └── pkgIndex.tcl
+│       │           │   ├── init.tcl
+│       │           │   ├── msgs
+│       │           │   │   ├── af.msg
+│       │           │   │   ├── af_za.msg
+│       │           │   │   ├── ar_in.msg
+│       │           │   │   ├── ar_jo.msg
+│       │           │   │   ├── ar_lb.msg
+│       │           │   │   ├── ar.msg
+│       │           │   │   ├── ar_sy.msg
+│       │           │   │   ├── be.msg
+│       │           │   │   ├── bg.msg
+│       │           │   │   ├── bn_in.msg
+│       │           │   │   ├── bn.msg
+│       │           │   │   ├── ca.msg
+│       │           │   │   ├── cs.msg
+│       │           │   │   ├── da.msg
+│       │           │   │   ├── de_at.msg
+│       │           │   │   ├── de_be.msg
+│       │           │   │   ├── de.msg
+│       │           │   │   ├── el.msg
+│       │           │   │   ├── en_au.msg
+│       │           │   │   ├── en_be.msg
+│       │           │   │   ├── en_bw.msg
+│       │           │   │   ├── en_ca.msg
+│       │           │   │   ├── en_gb.msg
+│       │           │   │   ├── en_hk.msg
+│       │           │   │   ├── en_ie.msg
+│       │           │   │   ├── en_in.msg
+│       │           │   │   ├── en_nz.msg
+│       │           │   │   ├── en_ph.msg
+│       │           │   │   ├── en_sg.msg
+│       │           │   │   ├── en_za.msg
+│       │           │   │   ├── en_zw.msg
+│       │           │   │   ├── eo.msg
+│       │           │   │   ├── es_ar.msg
+│       │           │   │   ├── es_bo.msg
+│       │           │   │   ├── es_cl.msg
+│       │           │   │   ├── es_co.msg
+│       │           │   │   ├── es_cr.msg
+│       │           │   │   ├── es_do.msg
+│       │           │   │   ├── es_ec.msg
+│       │           │   │   ├── es_gt.msg
+│       │           │   │   ├── es_hn.msg
+│       │           │   │   ├── es.msg
+│       │           │   │   ├── es_mx.msg
+│       │           │   │   ├── es_ni.msg
+│       │           │   │   ├── es_pa.msg
+│       │           │   │   ├── es_pe.msg
+│       │           │   │   ├── es_pr.msg
+│       │           │   │   ├── es_py.msg
+│       │           │   │   ├── es_sv.msg
+│       │           │   │   ├── es_uy.msg
+│       │           │   │   ├── es_ve.msg
+│       │           │   │   ├── et.msg
+│       │           │   │   ├── eu_es.msg
+│       │           │   │   ├── eu.msg
+│       │           │   │   ├── fa_in.msg
+│       │           │   │   ├── fa_ir.msg
+│       │           │   │   ├── fa.msg
+│       │           │   │   ├── fi.msg
+│       │           │   │   ├── fo_fo.msg
+│       │           │   │   ├── fo.msg
+│       │           │   │   ├── fr_be.msg
+│       │           │   │   ├── fr_ca.msg
+│       │           │   │   ├── fr_ch.msg
+│       │           │   │   ├── fr.msg
+│       │           │   │   ├── ga_ie.msg
+│       │           │   │   ├── ga.msg
+│       │           │   │   ├── gl_es.msg
+│       │           │   │   ├── gl.msg
+│       │           │   │   ├── gv_gb.msg
+│       │           │   │   ├── gv.msg
+│       │           │   │   ├── he.msg
+│       │           │   │   ├── hi_in.msg
+│       │           │   │   ├── hi.msg
+│       │           │   │   ├── hr.msg
+│       │           │   │   ├── hu.msg
+│       │           │   │   ├── id_id.msg
+│       │           │   │   ├── id.msg
+│       │           │   │   ├── is.msg
+│       │           │   │   ├── it_ch.msg
+│       │           │   │   ├── it.msg
+│       │           │   │   ├── ja.msg
+│       │           │   │   ├── kl_gl.msg
+│       │           │   │   ├── kl.msg
+│       │           │   │   ├── kok_in.msg
+│       │           │   │   ├── kok.msg
+│       │           │   │   ├── ko_kr.msg
+│       │           │   │   ├── ko.msg
+│       │           │   │   ├── kw_gb.msg
+│       │           │   │   ├── kw.msg
+│       │           │   │   ├── lt.msg
+│       │           │   │   ├── lv.msg
+│       │           │   │   ├── mk.msg
+│       │           │   │   ├── mr_in.msg
+│       │           │   │   ├── mr.msg
+│       │           │   │   ├── ms.msg
+│       │           │   │   ├── ms_my.msg
+│       │           │   │   ├── mt.msg
+│       │           │   │   ├── nb.msg
+│       │           │   │   ├── nl_be.msg
+│       │           │   │   ├── nl.msg
+│       │           │   │   ├── nn.msg
+│       │           │   │   ├── pl.msg
+│       │           │   │   ├── pt_br.msg
+│       │           │   │   ├── pt.msg
+│       │           │   │   ├── ro.msg
+│       │           │   │   ├── ru.msg
+│       │           │   │   ├── ru_ua.msg
+│       │           │   │   ├── sh.msg
+│       │           │   │   ├── sk.msg
+│       │           │   │   ├── sl.msg
+│       │           │   │   ├── sq.msg
+│       │           │   │   ├── sr.msg
+│       │           │   │   ├── sv.msg
+│       │           │   │   ├── sw.msg
+│       │           │   │   ├── ta_in.msg
+│       │           │   │   ├── ta.msg
+│       │           │   │   ├── te_in.msg
+│       │           │   │   ├── te.msg
+│       │           │   │   ├── th.msg
+│       │           │   │   ├── tr.msg
+│       │           │   │   ├── uk.msg
+│       │           │   │   ├── vi.msg
+│       │           │   │   ├── zh_cn.msg
+│       │           │   │   ├── zh_hk.msg
+│       │           │   │   ├── zh.msg
+│       │           │   │   ├── zh_sg.msg
+│       │           │   │   └── zh_tw.msg
+│       │           │   ├── opt0.4
+│       │           │   │   ├── optparse.tcl
+│       │           │   │   └── pkgIndex.tcl
+│       │           │   ├── package.tcl
+│       │           │   ├── parray.tcl
+│       │           │   ├── safe.tcl
+│       │           │   ├── tcl8
+│       │           │   │   ├── http-2.9.8.tm
+│       │           │   │   ├── msgcat-1.6.1.tm
+│       │           │   │   ├── platform
+│       │           │   │   │   └── shell-1.1.4.tm
+│       │           │   │   ├── platform-1.0.19.tm
+│       │           │   │   └── tcltest-2.5.7.tm
+│       │           │   ├── tclAppInit.c
+│       │           │   ├── tclIndex
+│       │           │   ├── tm.tcl
+│       │           │   └── word.tcl
+│       │           ├── _tk_data
+│       │           │   ├── bgerror.tcl
+│       │           │   ├── button.tcl
+│       │           │   ├── choosedir.tcl
+│       │           │   ├── clrpick.tcl
+│       │           │   ├── comdlg.tcl
+│       │           │   ├── console.tcl
+│       │           │   ├── dialog.tcl
+│       │           │   ├── entry.tcl
+│       │           │   ├── focus.tcl
+│       │           │   ├── fontchooser.tcl
+│       │           │   ├── iconlist.tcl
+│       │           │   ├── icons.tcl
+│       │           │   ├── images
+│       │           │   │   ├── logo100.gif
+│       │           │   │   ├── logo64.gif
+│       │           │   │   ├── logo.eps
+│       │           │   │   ├── logoLarge.gif
+│       │           │   │   ├── logoMed.gif
+│       │           │   │   ├── pwrdLogo100.gif
+│       │           │   │   ├── pwrdLogo150.gif
+│       │           │   │   ├── pwrdLogo175.gif
+│       │           │   │   ├── pwrdLogo200.gif
+│       │           │   │   ├── pwrdLogo75.gif
+│       │           │   │   ├── pwrdLogo.eps
+│       │           │   │   ├── README
+│       │           │   │   └── tai-ku.gif
+│       │           │   ├── listbox.tcl
+│       │           │   ├── megawidget.tcl
+│       │           │   ├── menu.tcl
+│       │           │   ├── mkpsenc.tcl
+│       │           │   ├── msgbox.tcl
+│       │           │   ├── msgs
+│       │           │   │   ├── cs.msg
+│       │           │   │   ├── da.msg
+│       │           │   │   ├── de.msg
+│       │           │   │   ├── el.msg
+│       │           │   │   ├── en_gb.msg
+│       │           │   │   ├── en.msg
+│       │           │   │   ├── eo.msg
+│       │           │   │   ├── es.msg
+│       │           │   │   ├── fi.msg
+│       │           │   │   ├── fr.msg
+│       │           │   │   ├── hu.msg
+│       │           │   │   ├── it.msg
+│       │           │   │   ├── nl.msg
+│       │           │   │   ├── pl.msg
+│       │           │   │   ├── pt.msg
+│       │           │   │   ├── ru.msg
+│       │           │   │   ├── sv.msg
+│       │           │   │   └── zh_cn.msg
+│       │           │   ├── obsolete.tcl
+│       │           │   ├── optMenu.tcl
+│       │           │   ├── palette.tcl
+│       │           │   ├── panedwindow.tcl
+│       │           │   ├── safetk.tcl
+│       │           │   ├── scale.tcl
+│       │           │   ├── scrlbar.tcl
+│       │           │   ├── spinbox.tcl
+│       │           │   ├── tclIndex
+│       │           │   ├── tearoff.tcl
+│       │           │   ├── text.tcl
+│       │           │   ├── tkAppInit.c
+│       │           │   ├── tkfbox.tcl
+│       │           │   ├── tk.tcl
+│       │           │   ├── ttk
+│       │           │   │   ├── altTheme.tcl
+│       │           │   │   ├── aquaTheme.tcl
+│       │           │   │   ├── button.tcl
+│       │           │   │   ├── clamTheme.tcl
+│       │           │   │   ├── classicTheme.tcl
+│       │           │   │   ├── combobox.tcl
+│       │           │   │   ├── cursors.tcl
+│       │           │   │   ├── defaults.tcl
+│       │           │   │   ├── entry.tcl
+│       │           │   │   ├── fonts.tcl
+│       │           │   │   ├── menubutton.tcl
+│       │           │   │   ├── notebook.tcl
+│       │           │   │   ├── panedwindow.tcl
+│       │           │   │   ├── progress.tcl
+│       │           │   │   ├── scale.tcl
+│       │           │   │   ├── scrollbar.tcl
+│       │           │   │   ├── sizegrip.tcl
+│       │           │   │   ├── spinbox.tcl
+│       │           │   │   ├── treeview.tcl
+│       │           │   │   ├── ttk.tcl
+│       │           │   │   ├── utils.tcl
+│       │           │   │   ├── vistaTheme.tcl
+│       │           │   │   ├── winTheme.tcl
+│       │           │   │   └── xpTheme.tcl
+│       │           │   ├── unsupported.tcl
+│       │           │   └── xmfbox.tcl
+│       │           └── utils
+│       │               ├── helpers.py
+│       │               ├── __init__.py
+│       │               └── __pycache__
+│       │                   ├── helpers.cpython-312.pyc
+│       │                   └── __init__.cpython-312.pyc
+│       └── share
+│           ├── applications
+│           │   └── conversor-pdf.desktop
+│           └── icons
+│               └── conversor_icon.png
+├── conversor_package.deb
+├── ConversorPDF.spec
+├── core
+│   ├── converter.py
+│   ├── __init__.py
+│   └── __pycache__
+│       ├── converter.cpython-312.pyc
+│       └── __init__.cpython-312.pyc
+├── dist
+│   └── ConversorPDF
+│       ├── ConversorPDF
+│       └── _internal
+│           ├── base_library.zip
+│           ├── core
+│           │   ├── converter.py
+│           │   ├── __init__.py
+│           │   └── __pycache__
+│           │       ├── converter.cpython-312.pyc
+│           │       └── __init__.cpython-312.pyc
+│           ├── customtkinter
+│           │   └── assets
+│           │       ├── fonts
+│           │       │   ├── CustomTkinter_shapes_font.otf
+│           │       │   └── Roboto
+│           │       │       ├── Roboto-Medium.ttf
+│           │       │       └── Roboto-Regular.ttf
+│           │       ├── icons
+│           │       │   └── CustomTkinter_icon_Windows.ico
+│           │       └── themes
+│           │           ├── blue.json
+│           │           ├── dark-blue.json
+│           │           └── green.json
+│           ├── docx
+│           │   ├── py.typed
+│           │   └── templates
+│           │       ├── default-comments.xml
+│           │       ├── default.docx
+│           │       ├── default-docx-template
+│           │       │   ├── [Content_Types].xml
+│           │       │   ├── customXml
+│           │       │   │   ├── item1.xml
+│           │       │   │   ├── itemProps1.xml
+│           │       │   │   └── _rels
+│           │       │   │       └── item1.xml.rels
+│           │       │   ├── docProps
+│           │       │   │   ├── app.xml
+│           │       │   │   ├── core.xml
+│           │       │   │   └── thumbnail.jpeg
+│           │       │   ├── _rels
+│           │       │   └── word
+│           │       │       ├── document.xml
+│           │       │       ├── fontTable.xml
+│           │       │       ├── numbering.xml
+│           │       │       ├── _rels
+│           │       │       │   └── document.xml.rels
+│           │       │       ├── settings.xml
+│           │       │       ├── stylesWithEffects.xml
+│           │       │       ├── styles.xml
+│           │       │       ├── theme
+│           │       │       │   └── theme1.xml
+│           │       │       └── webSettings.xml
+│           │       ├── default-footer.xml
+│           │       ├── default-header.xml
+│           │       ├── default-settings.xml
+│           │       └── default-styles.xml
+│           ├── gui
+│           │   ├── app_ui.py
+│           │   ├── __init__.py
+│           │   └── __pycache__
+│           │       ├── app_ui.cpython-312.pyc
+│           │       └── __init__.cpython-312.pyc
+│           ├── libBLT.2.5.so.8.6
+│           ├── libbrotlicommon.so.1
+│           ├── libbrotlidec.so.1
+│           ├── libbsd.so.0
+│           ├── libbz2.so.1.0
+│           ├── libcrypto.so.3
+│           ├── libexpat.so.1
+│           ├── libffi.so.8
+│           ├── libfontconfig.so.1
+│           ├── libfreetype.so.6
+│           ├── liblzma.so.5
+│           ├── libmd.so.0
+│           ├── libpng16.so.16
+│           ├── libpython3.12.so.1.0
+│           ├── libreadline.so.8
+│           ├── libssl.so.3
+│           ├── libtcl8.6.so
+│           ├── libtinfo.so.6
+│           ├── libtk8.6.so
+│           ├── libX11.so.6
+│           ├── libXau.so.6
+│           ├── libXdmcp.so.6
+│           ├── libXext.so.6
+│           ├── libXft.so.2
+│           ├── libXrender.so.1
+│           ├── libXss.so.1
+│           ├── libz.so.1
+│           ├── lxml
+│           │   ├── builder.cpython-312-x86_64-linux-gnu.so
+│           │   ├── _elementpath.cpython-312-x86_64-linux-gnu.so
+│           │   ├── etree.cpython-312-x86_64-linux-gnu.so
+│           │   ├── html
+│           │   │   ├── diff.cpython-312-x86_64-linux-gnu.so
+│           │   │   └── _difflib.cpython-312-x86_64-linux-gnu.so
+│           │   ├── isoschematron
+│           │   │   └── resources
+│           │   │       ├── rng
+│           │   │       │   └── iso-schematron.rng
+│           │   │       └── xsl
+│           │   │           ├── iso-schematron-xslt1
+│           │   │           │   ├── iso_abstract_expand.xsl
+│           │   │           │   ├── iso_dsdl_include.xsl
+│           │   │           │   ├── iso_schematron_message.xsl
+│           │   │           │   ├── iso_schematron_skeleton_for_xslt1.xsl
+│           │   │           │   ├── iso_svrl_for_xslt1.xsl
+│           │   │           │   └── readme.txt
+│           │   │           ├── RNG2Schtrn.xsl
+│           │   │           └── XSD2Schtrn.xsl
+│           │   ├── objectify.cpython-312-x86_64-linux-gnu.so
+│           │   └── sax.cpython-312-x86_64-linux-gnu.so
+│           ├── python3.12
+│           │   └── lib-dynload
+│           │       ├── _asyncio.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _bz2.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _codecs_cn.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _codecs_hk.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _codecs_iso2022.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _codecs_jp.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _codecs_kr.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _codecs_tw.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _contextvars.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _ctypes.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _decimal.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _hashlib.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _json.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _lzma.cpython-312-x86_64-linux-gnu.so
+│           │       ├── mmap.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _multibytecodec.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _multiprocessing.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _posixshmem.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _queue.cpython-312-x86_64-linux-gnu.so
+│           │       ├── readline.cpython-312-x86_64-linux-gnu.so
+│           │       ├── resource.cpython-312-x86_64-linux-gnu.so
+│           │       ├── _ssl.cpython-312-x86_64-linux-gnu.so
+│           │       ├── termios.cpython-312-x86_64-linux-gnu.so
+│           │       └── _tkinter.cpython-312-x86_64-linux-gnu.so
+│           ├── _tcl_data
+│           │   ├── auto.tcl
+│           │   ├── clock.tcl
+│           │   ├── encoding
+│           │   │   ├── ascii.enc
+│           │   │   ├── big5.enc
+│           │   │   ├── cns11643.enc
+│           │   │   ├── cp1250.enc
+│           │   │   ├── cp1251.enc
+│           │   │   ├── cp1252.enc
+│           │   │   ├── cp1253.enc
+│           │   │   ├── cp1254.enc
+│           │   │   ├── cp1255.enc
+│           │   │   ├── cp1256.enc
+│           │   │   ├── cp1257.enc
+│           │   │   ├── cp1258.enc
+│           │   │   ├── cp437.enc
+│           │   │   ├── cp737.enc
+│           │   │   ├── cp775.enc
+│           │   │   ├── cp850.enc
+│           │   │   ├── cp852.enc
+│           │   │   ├── cp855.enc
+│           │   │   ├── cp857.enc
+│           │   │   ├── cp860.enc
+│           │   │   ├── cp861.enc
+│           │   │   ├── cp862.enc
+│           │   │   ├── cp863.enc
+│           │   │   ├── cp864.enc
+│           │   │   ├── cp865.enc
+│           │   │   ├── cp866.enc
+│           │   │   ├── cp869.enc
+│           │   │   ├── cp874.enc
+│           │   │   ├── cp932.enc
+│           │   │   ├── cp936.enc
+│           │   │   ├── cp949.enc
+│           │   │   ├── cp950.enc
+│           │   │   ├── dingbats.enc
+│           │   │   ├── ebcdic.enc
+│           │   │   ├── euc-cn.enc
+│           │   │   ├── euc-jp.enc
+│           │   │   ├── euc-kr.enc
+│           │   │   ├── gb12345.enc
+│           │   │   ├── gb1988.enc
+│           │   │   ├── gb2312.enc
+│           │   │   ├── gb2312-raw.enc
+│           │   │   ├── iso2022.enc
+│           │   │   ├── iso2022-jp.enc
+│           │   │   ├── iso2022-kr.enc
+│           │   │   ├── iso8859-10.enc
+│           │   │   ├── iso8859-11.enc
+│           │   │   ├── iso8859-13.enc
+│           │   │   ├── iso8859-14.enc
+│           │   │   ├── iso8859-15.enc
+│           │   │   ├── iso8859-16.enc
+│           │   │   ├── iso8859-1.enc
+│           │   │   ├── iso8859-2.enc
+│           │   │   ├── iso8859-3.enc
+│           │   │   ├── iso8859-4.enc
+│           │   │   ├── iso8859-5.enc
+│           │   │   ├── iso8859-6.enc
+│           │   │   ├── iso8859-7.enc
+│           │   │   ├── iso8859-8.enc
+│           │   │   ├── iso8859-9.enc
+│           │   │   ├── jis0201.enc
+│           │   │   ├── jis0208.enc
+│           │   │   ├── jis0212.enc
+│           │   │   ├── koi8-r.enc
+│           │   │   ├── koi8-u.enc
+│           │   │   ├── ksc5601.enc
+│           │   │   ├── macCentEuro.enc
+│           │   │   ├── macCroatian.enc
+│           │   │   ├── macCyrillic.enc
+│           │   │   ├── macDingbats.enc
+│           │   │   ├── macGreek.enc
+│           │   │   ├── macIceland.enc
+│           │   │   ├── macJapan.enc
+│           │   │   ├── macRoman.enc
+│           │   │   ├── macRomania.enc
+│           │   │   ├── macThai.enc
+│           │   │   ├── macTurkish.enc
+│           │   │   ├── macUkraine.enc
+│           │   │   ├── shiftjis.enc
+│           │   │   ├── symbol.enc
+│           │   │   └── tis-620.enc
+│           │   ├── history.tcl
+│           │   ├── http1.0
+│           │   │   ├── http.tcl
+│           │   │   └── pkgIndex.tcl
+│           │   ├── init.tcl
+│           │   ├── msgs
+│           │   │   ├── af.msg
+│           │   │   ├── af_za.msg
+│           │   │   ├── ar_in.msg
+│           │   │   ├── ar_jo.msg
+│           │   │   ├── ar_lb.msg
+│           │   │   ├── ar.msg
+│           │   │   ├── ar_sy.msg
+│           │   │   ├── be.msg
+│           │   │   ├── bg.msg
+│           │   │   ├── bn_in.msg
+│           │   │   ├── bn.msg
+│           │   │   ├── ca.msg
+│           │   │   ├── cs.msg
+│           │   │   ├── da.msg
+│           │   │   ├── de_at.msg
+│           │   │   ├── de_be.msg
+│           │   │   ├── de.msg
+│           │   │   ├── el.msg
+│           │   │   ├── en_au.msg
+│           │   │   ├── en_be.msg
+│           │   │   ├── en_bw.msg
+│           │   │   ├── en_ca.msg
+│           │   │   ├── en_gb.msg
+│           │   │   ├── en_hk.msg
+│           │   │   ├── en_ie.msg
+│           │   │   ├── en_in.msg
+│           │   │   ├── en_nz.msg
+│           │   │   ├── en_ph.msg
+│           │   │   ├── en_sg.msg
+│           │   │   ├── en_za.msg
+│           │   │   ├── en_zw.msg
+│           │   │   ├── eo.msg
+│           │   │   ├── es_ar.msg
+│           │   │   ├── es_bo.msg
+│           │   │   ├── es_cl.msg
+│           │   │   ├── es_co.msg
+│           │   │   ├── es_cr.msg
+│           │   │   ├── es_do.msg
+│           │   │   ├── es_ec.msg
+│           │   │   ├── es_gt.msg
+│           │   │   ├── es_hn.msg
+│           │   │   ├── es.msg
+│           │   │   ├── es_mx.msg
+│           │   │   ├── es_ni.msg
+│           │   │   ├── es_pa.msg
+│           │   │   ├── es_pe.msg
+│           │   │   ├── es_pr.msg
+│           │   │   ├── es_py.msg
+│           │   │   ├── es_sv.msg
+│           │   │   ├── es_uy.msg
+│           │   │   ├── es_ve.msg
+│           │   │   ├── et.msg
+│           │   │   ├── eu_es.msg
+│           │   │   ├── eu.msg
+│           │   │   ├── fa_in.msg
+│           │   │   ├── fa_ir.msg
+│           │   │   ├── fa.msg
+│           │   │   ├── fi.msg
+│           │   │   ├── fo_fo.msg
+│           │   │   ├── fo.msg
+│           │   │   ├── fr_be.msg
+│           │   │   ├── fr_ca.msg
+│           │   │   ├── fr_ch.msg
+│           │   │   ├── fr.msg
+│           │   │   ├── ga_ie.msg
+│           │   │   ├── ga.msg
+│           │   │   ├── gl_es.msg
+│           │   │   ├── gl.msg
+│           │   │   ├── gv_gb.msg
+│           │   │   ├── gv.msg
+│           │   │   ├── he.msg
+│           │   │   ├── hi_in.msg
+│           │   │   ├── hi.msg
+│           │   │   ├── hr.msg
+│           │   │   ├── hu.msg
+│           │   │   ├── id_id.msg
+│           │   │   ├── id.msg
+│           │   │   ├── is.msg
+│           │   │   ├── it_ch.msg
+│           │   │   ├── it.msg
+│           │   │   ├── ja.msg
+│           │   │   ├── kl_gl.msg
+│           │   │   ├── kl.msg
+│           │   │   ├── kok_in.msg
+│           │   │   ├── kok.msg
+│           │   │   ├── ko_kr.msg
+│           │   │   ├── ko.msg
+│           │   │   ├── kw_gb.msg
+│           │   │   ├── kw.msg
+│           │   │   ├── lt.msg
+│           │   │   ├── lv.msg
+│           │   │   ├── mk.msg
+│           │   │   ├── mr_in.msg
+│           │   │   ├── mr.msg
+│           │   │   ├── ms.msg
+│           │   │   ├── ms_my.msg
+│           │   │   ├── mt.msg
+│           │   │   ├── nb.msg
+│           │   │   ├── nl_be.msg
+│           │   │   ├── nl.msg
+│           │   │   ├── nn.msg
+│           │   │   ├── pl.msg
+│           │   │   ├── pt_br.msg
+│           │   │   ├── pt.msg
+│           │   │   ├── ro.msg
+│           │   │   ├── ru.msg
+│           │   │   ├── ru_ua.msg
+│           │   │   ├── sh.msg
+│           │   │   ├── sk.msg
+│           │   │   ├── sl.msg
+│           │   │   ├── sq.msg
+│           │   │   ├── sr.msg
+│           │   │   ├── sv.msg
+│           │   │   ├── sw.msg
+│           │   │   ├── ta_in.msg
+│           │   │   ├── ta.msg
+│           │   │   ├── te_in.msg
+│           │   │   ├── te.msg
+│           │   │   ├── th.msg
+│           │   │   ├── tr.msg
+│           │   │   ├── uk.msg
+│           │   │   ├── vi.msg
+│           │   │   ├── zh_cn.msg
+│           │   │   ├── zh_hk.msg
+│           │   │   ├── zh.msg
+│           │   │   ├── zh_sg.msg
+│           │   │   └── zh_tw.msg
+│           │   ├── opt0.4
+│           │   │   ├── optparse.tcl
+│           │   │   └── pkgIndex.tcl
+│           │   ├── package.tcl
+│           │   ├── parray.tcl
+│           │   ├── safe.tcl
+│           │   ├── tcl8
+│           │   │   ├── http-2.9.8.tm
+│           │   │   ├── msgcat-1.6.1.tm
+│           │   │   ├── platform
+│           │   │   │   └── shell-1.1.4.tm
+│           │   │   ├── platform-1.0.19.tm
+│           │   │   └── tcltest-2.5.7.tm
+│           │   ├── tclAppInit.c
+│           │   ├── tclIndex
+│           │   ├── tm.tcl
+│           │   └── word.tcl
+│           ├── _tk_data
+│           │   ├── bgerror.tcl
+│           │   ├── button.tcl
+│           │   ├── choosedir.tcl
+│           │   ├── clrpick.tcl
+│           │   ├── comdlg.tcl
+│           │   ├── console.tcl
+│           │   ├── dialog.tcl
+│           │   ├── entry.tcl
+│           │   ├── focus.tcl
+│           │   ├── fontchooser.tcl
+│           │   ├── iconlist.tcl
+│           │   ├── icons.tcl
+│           │   ├── images
+│           │   │   ├── logo100.gif
+│           │   │   ├── logo64.gif
+│           │   │   ├── logo.eps
+│           │   │   ├── logoLarge.gif
+│           │   │   ├── logoMed.gif
+│           │   │   ├── pwrdLogo100.gif
+│           │   │   ├── pwrdLogo150.gif
+│           │   │   ├── pwrdLogo175.gif
+│           │   │   ├── pwrdLogo200.gif
+│           │   │   ├── pwrdLogo75.gif
+│           │   │   ├── pwrdLogo.eps
+│           │   │   ├── README
+│           │   │   └── tai-ku.gif
+│           │   ├── listbox.tcl
+│           │   ├── megawidget.tcl
+│           │   ├── menu.tcl
+│           │   ├── mkpsenc.tcl
+│           │   ├── msgbox.tcl
+│           │   ├── msgs
+│           │   │   ├── cs.msg
+│           │   │   ├── da.msg
+│           │   │   ├── de.msg
+│           │   │   ├── el.msg
+│           │   │   ├── en_gb.msg
+│           │   │   ├── en.msg
+│           │   │   ├── eo.msg
+│           │   │   ├── es.msg
+│           │   │   ├── fi.msg
+│           │   │   ├── fr.msg
+│           │   │   ├── hu.msg
+│           │   │   ├── it.msg
+│           │   │   ├── nl.msg
+│           │   │   ├── pl.msg
+│           │   │   ├── pt.msg
+│           │   │   ├── ru.msg
+│           │   │   ├── sv.msg
+│           │   │   └── zh_cn.msg
+│           │   ├── obsolete.tcl
+│           │   ├── optMenu.tcl
+│           │   ├── palette.tcl
+│           │   ├── panedwindow.tcl
+│           │   ├── safetk.tcl
+│           │   ├── scale.tcl
+│           │   ├── scrlbar.tcl
+│           │   ├── spinbox.tcl
+│           │   ├── tclIndex
+│           │   ├── tearoff.tcl
+│           │   ├── text.tcl
+│           │   ├── tkAppInit.c
+│           │   ├── tkfbox.tcl
+│           │   ├── tk.tcl
+│           │   ├── ttk
+│           │   │   ├── altTheme.tcl
+│           │   │   ├── aquaTheme.tcl
+│           │   │   ├── button.tcl
+│           │   │   ├── clamTheme.tcl
+│           │   │   ├── classicTheme.tcl
+│           │   │   ├── combobox.tcl
+│           │   │   ├── cursors.tcl
+│           │   │   ├── defaults.tcl
+│           │   │   ├── entry.tcl
+│           │   │   ├── fonts.tcl
+│           │   │   ├── menubutton.tcl
+│           │   │   ├── notebook.tcl
+│           │   │   ├── panedwindow.tcl
+│           │   │   ├── progress.tcl
+│           │   │   ├── scale.tcl
+│           │   │   ├── scrollbar.tcl
+│           │   │   ├── sizegrip.tcl
+│           │   │   ├── spinbox.tcl
+│           │   │   ├── treeview.tcl
+│           │   │   ├── ttk.tcl
+│           │   │   ├── utils.tcl
+│           │   │   ├── vistaTheme.tcl
+│           │   │   ├── winTheme.tcl
+│           │   │   └── xpTheme.tcl
+│           │   ├── unsupported.tcl
+│           │   └── xmfbox.tcl
+│           └── utils
+│               ├── helpers.py
+│               ├── __init__.py
+│               └── __pycache__
+│                   ├── helpers.cpython-312.pyc
+│                   └── __init__.cpython-312.pyc
+├── gui
+│   ├── app_ui.py
+│   ├── assets
+│   │   └── logo.ico
+│   ├── __init__.py
+│   └── __pycache__
+│       ├── app_ui.cpython-312.pyc
+│       └── __init__.cpython-312.pyc
+├── main.py
+├── requirements.txt
+└── utils
+    ├── helpers.py
+    ├── __init__.py
+    └── __pycache__
+        ├── helpers.cpython-312.pyc
+        └── __init__.cpython-312.pyc
+
+107 directories, 888 files
