@@ -1,7 +1,0 @@
-Package: conversor-universal-pdf
-Version: 1.0
-Section: utils
-Priority: optional
-Architecture: amd64
-Maintainer: testdeveloperrandom@gmail.com
-Description: Aplicación para convertir txt, doc o docx a pdf
