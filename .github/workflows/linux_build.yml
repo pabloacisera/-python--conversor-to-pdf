@@ -1,16 +1,15 @@
-name: Linux Build
+name: Linux DEB Build
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
-# ⚠️ MISMO PERMISO
 permissions:
   contents: write
 
 jobs:
-  build:
+  build-deb:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,8 +23,10 @@ jobs:
     - name: Install dependencies
       run: |
         pip install customtkinter fpdf python-docx pyinstaller
+        sudo apt-get update
+        sudo apt-get install -y dpkg-dev
     
-    - name: Build Linux
+    - name: Build with PyInstaller
       run: |
         pyinstaller --noconfirm --onedir \
           --add-data "core:core" \
@@ -33,24 +34,117 @@ jobs:
           --add-data "utils:utils" \
           --name conversor-pdf main.py
     
-    - name: Create TAR package
+    - name: Prepare DEB package structure
       run: |
-        tar -czf conversor-pdf-linux.tar.gz -C dist/conversor-pdf .
+        # Crear estructura del paquete DEB
+        mkdir -p deb-package/DEBIAN
+        mkdir -p deb-package/usr/bin
+        mkdir -p deb-package/usr/share/applications
+        mkdir -p deb-package/usr/share/icons/hicolor/256x256/apps
+        mkdir -p deb-package/usr/share/conversor-pdf
+        
+        # Copiar la aplicación construida
+        cp -r dist/conversor-pdf/* deb-package/usr/share/conversor-pdf/
+        
+        # Crear script de lanzamiento
+        cat > deb-package/usr/bin/conversor-pdf << 'EOF'
+        #!/bin/bash
+        cd /usr/share/conversor-pdf
+        ./conversor-pdf
+        EOF
+        chmod +x deb-package/usr/bin/conversor-pdf
+        
+        # Copiar icono si existe
+        if [ -f "gui/assets/logo.ico" ]; then
+          # Convertir .ico a .png si es necesario
+          convert gui/assets/logo.ico deb-package/usr/share/icons/hicolor/256x256/apps/conversor-pdf.png 2>/dev/null || \
+          cp gui/assets/logo.png deb-package/usr/share/icons/hicolor/256x256/apps/conversor-pdf.png 2>/dev/null || \
+          echo "Icono no encontrado, continuando sin él"
+        fi
+        
+        # Crear archivo .desktop
+        cat > deb-package/usr/share/applications/conversor-pdf.desktop << EOF
+        [Desktop Entry]
+        Name=Conversor PDF
+        Comment=Convierte archivos TXT, DOC y DOCX a PDF
+        Exec=conversor-pdf
+        Icon=conversor-pdf
+        Terminal=false
+        Type=Application
+        Categories=Utility;Office;
+        StartupNotify=true
+        EOF
+        
+        # Crear archivo de control DEBIAN/control
+        cat > deb-package/DEBIAN/control << EOF
+        Package: conversor-pdf
+        Version: 1.0.${{ github.run_number }}
+        Section: utils
+        Priority: optional
+        Architecture: amd64
+        Maintainer: pabloacisera
+        Description: Conversor de documentos TXT, DOC y DOCX a PDF
+         Aplicación de escritorio para convertir archivos de texto y Word a PDF.
+         Características:
+         - Interfaz gráfica moderna
+         - Soporte para múltiples formatos
+         - Procesamiento por lotes
+         - Opciones configurables
+        EOF
+        
+        # Crear script postinst (opcional)
+        cat > deb-package/DEBIAN/postinst << 'EOF'
+        #!/bin/bash
+        # Actualizar base de datos de íconos
+        if [ -x "$(command -v update-desktop-database)" ]; then
+          update-desktop-database
+        fi
+        if [ -x "$(command -v gtk-update-icon-cache)" ]; then
+          gtk-update-icon-cache /usr/share/icons/hicolor
+        fi
+        EOF
+        chmod +x deb-package/DEBIAN/postinst
+    
+    - name: Build DEB package
+      run: |
+        # Construir el paquete .deb
+        dpkg-deb --build deb-package conversor-pdf.deb
+        
+        # Mostrar información del paquete
+        echo "=== Información del paquete DEB ==="
+        dpkg -I conversor-pdf.deb || true
     
     - name: Create or Update Release
       uses: softprops/action-gh-release@v1
       with:
-        tag_name: "linux-latest"
-        name: "Linux Latest Build"
-        body: "Última versión para Linux - Se actualiza automáticamente"
+        tag_name: "linux-deb-latest"
+        name: "Linux DEB Package v1.0.${{ github.run_number }}"
+        body: |
+          ## Conversor PDF para Linux (DEB Package)
+          
+          **Versión:** 1.0.${{ github.run_number }}
+          **Commit:** ${{ github.sha }}
+          
+          ### Instalación:
+          ```bash
+          sudo apt install ./conversor-pdf.deb
+          ```
+          
+          La aplicación aparecerá en el menú de aplicaciones como "Conversor PDF".
+          
+          ### Características:
+          - Conversión de TXT, DOC y DOCX a PDF
+          - Interfaz gráfica moderna
+          - Procesamiento por lotes
+          - Instalación nativa en Debian/Ubuntu
         files: |
-          conversor-pdf-linux.tar.gz
+          conversor-pdf.deb
         draft: false
         prerelease: false
         generate_release_notes: false
     
-    - name: Upload Artifact (backup)
+    - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: linux-build-${{ github.run_number }}
-        path: conversor-pdf-linux.tar.gz
+        name: conversor-pdf-deb-${{ github.run_number }}
+        path: conversor-pdf.deb

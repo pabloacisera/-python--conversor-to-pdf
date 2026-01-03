@@ -143,7 +143,7 @@ class ConversorApp:
         
         ctk.CTkButton(
             marco, text="🗑️ LIMPIAR", command=self.limpiar, 
-            height=60, width=150, fg_color="#FF9800", hover_color="#E68A00", text_color="white"
+            height=60, width=150, fg_color="#FF9800", hover_color="#E68A00", text_color="white",
             font=("Segoe UI", 14, "bold")
         ).pack(side="right")
 
