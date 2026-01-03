@@ -129,15 +129,21 @@ class ConversorApp:
         marco.pack(fill="x", pady=(0, 10))
         
         self.boton_convertir = ctk.CTkButton(
-            marco, text="🚀 INICIAR CONVERSIÓN", command=self.iniciar,
-            height=60, font=("Segoe UI", 18, "bold"), fg_color="#4CAF50", 
-            hover_color="#388E3C", state="disabled"
+            marco, 
+            text="🚀 INICIAR CONVERSIÓN", 
+            command=self.iniciar,
+            height=60, 
+            font=("Segoe UI", 18, "bold"), 
+            fg_color="#4CAF50", 
+            hover_color="#388E3C",
+            text_color="white", 
+            state="disabled"
         )
         self.boton_convertir.pack(side="left", expand=True, fill="x", padx=(0, 10))
         
         ctk.CTkButton(
             marco, text="🗑️ LIMPIAR", command=self.limpiar, 
-            height=60, width=150, fg_color="#FF9800", hover_color="#E68A00",
+            height=60, width=150, fg_color="#FF9800", hover_color="#E68A00", text_color="white"
             font=("Segoe UI", 14, "bold")
         ).pack(side="right")
 
