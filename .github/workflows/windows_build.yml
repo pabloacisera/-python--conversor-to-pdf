@@ -1,9 +1,11 @@
+
 name: Build Windows EXE
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:  # Permite ejecución manual
 
 jobs:
   build:
@@ -21,12 +23,38 @@ jobs:
       - name: Instalar dependencias
         run: |
           python -m pip install --upgrade pip
-          pip install customtkinter fpdf python-docx pyinstaller
+          pip install -r requirements.txt
+          pip install pyinstaller
 
       - name: Build Windows EXE con PyInstaller
-        run: pyinstaller --noconfirm --onedir --windowed --add-data "core;core" --add-data "gui;gui" --add-data "utils;utils" --name ConversorPDF --icon gui/assets/logo.ico main.py
+        run: |
+          pyinstaller --noconfirm --onedir --windowed `
+            --add-data "core;core" `
+            --add-data "gui;gui" `
+            --add-data "utils;utils" `
+            --name ConversorPDF `
+            --icon gui/assets/logo.ico main.py
 
-      - name: Subir artefacto
+      - name: Crear archivo ZIP portable
+        run: |
+          Compress-Archive -Path "dist/ConversorPDF/*" -DestinationPath "ConversorPDF-Windows.zip" -Force
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        with:
+          tag_name: "auto-build-${{ github.run_id }}"
+          name: "Auto Build #${{ github.run_number }}"
+          body: "Build automático desde GitHub Actions - Windows"
+          files: |
+            ConversorPDF-Windows.zip
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Subir artefacto (backup)
         uses: actions/upload-artifact@v4
         with:
           name: ConversorPDF-Windows
