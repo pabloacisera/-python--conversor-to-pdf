@@ -1,92 +1,56 @@
-name: Build Linux DEB
+name: Linux Build
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:  # Permite ejecución manual
+    branches: [main]
+  workflow_dispatch:
+
+# ⚠️ MISMO PERMISO
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout código
-        uses: actions/checkout@v4
-
-      - name: Configurar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
-
-      - name: Instalar dependencias
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install pyinstaller
-
-      - name: Build Linux Executable
-        run: |
-          pyinstaller --noconfirm --onedir \
-            --add-data "core:core" \
-            --add-data "gui:gui" \
-            --add-data "utils:utils" \
-            --name conversor-pdf main.py
-
-      - name: Preparar paquete DEB
-        run: |
-          # Crear estructura de directorios para DEB
-          mkdir -p deb-package/usr/local/bin
-          mkdir -p deb-package/usr/share/applications
-          mkdir -p deb-package/DEBIAN
-          
-          # Copiar binario
-          cp -r dist/conversor-pdf/* deb-package/usr/local/bin/
-          
-          # Crear control file
-          cat > deb-package/DEBIAN/control << EOF
-          Package: conversor-pdf
-          Version: 1.0-${{ github.run_number }}
-          Section: utils
-          Priority: optional
-          Architecture: amd64
-          Maintainer: pabloacisera
-          Description: Conversor de documentos a PDF
-          EOF
-          
-          # Crear desktop entry
-          cat > deb-package/usr/share/applications/conversor-pdf.desktop << EOF
-          [Desktop Entry]
-          Name=Conversor PDF
-          Comment=Convierte archivos TXT y DOC a PDF
-          Exec=/usr/local/bin/conversor-pdf/conversor-pdf
-          Icon=/usr/local/bin/conversor-pdf/gui/assets/logo.png
-          Terminal=false
-          Type=Application
-          Categories=Utility;
-          EOF
-
-      - name: Construir paquete DEB
-        run: |
-          dpkg-deb --build deb-package conversor-pdf.deb
-
-      - name: Create GitHub Release (Linux)
-        uses: softprops/action-gh-release@v1
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        with:
-          tag_name: "auto-build-${{ github.run_id }}-linux"
-          name: "Auto Build Linux #${{ github.run_number }}"
-          body: "Build automático desde GitHub Actions - Linux"
-          files: |
-            conversor-pdf.deb
-          draft: false
-          prerelease: false
-          generate_release_notes: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Subir artefacto (backup)
-        uses: actions/upload-artifact@v4
-        with:
-          name: conversor-pdf-linux
-          path: conversor-pdf.deb
+    - uses: actions/checkout@v4
+    
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+    
+    - name: Install dependencies
+      run: |
+        pip install customtkinter fpdf python-docx pyinstaller
+    
+    - name: Build Linux
+      run: |
+        pyinstaller --noconfirm --onedir \
+          --add-data "core:core" \
+          --add-data "gui:gui" \
+          --add-data "utils:utils" \
+          --name conversor-pdf main.py
+    
+    - name: Create TAR package
+      run: |
+        tar -czf conversor-pdf-linux.tar.gz -C dist/conversor-pdf .
+    
+    - name: Create or Update Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: "linux-latest"
+        name: "Linux Latest Build"
+        body: "Última versión para Linux - Se actualiza automáticamente"
+        files: |
+          conversor-pdf-linux.tar.gz
+        draft: false
+        prerelease: false
+        generate_release_notes: false
+    
+    - name: Upload Artifact (backup)
+      uses: actions/upload-artifact@v4
+      with:
+        name: linux-build-${{ github.run_number }}
+        path: conversor-pdf-linux.tar.gz
